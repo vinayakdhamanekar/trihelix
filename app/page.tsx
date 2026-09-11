@@ -16,7 +16,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 /** TriHelix Home.dc.html — 1440x7340 design canvas, scaled to the viewport width.
  *  Press "G" to difference-blend the Figma reference over the page. */
 export default function HomePage() {
-  const { stageRef, artRef } = useStageFit(1440, 7340);
+  const { stageRef, artRef } = useStageFit(1440, 7440);
   const [slide, setSlide] = useState(0);
   const track = useRef<HTMLDivElement | null>(null);
   const SLIDE_STEP = 702 + 46;
@@ -42,7 +42,7 @@ export default function HomePage() {
         <div
           ref={artRef}
           style={{
-            position: "absolute", top: 0, left: 0, width: 1440, height: 7340,
+            position: "absolute", top: 0, left: 0, width: 1440, height: 7440,
             transformOrigin: "0 0",
             backgroundImage: "url('/assets/home-bg.png')",
             backgroundSize: "1440px 7340px",
@@ -51,7 +51,16 @@ export default function HomePage() {
           }}
         >
 
-
+      {/* The base backgroundImage above is a single static image, painted once
+          at its native 0,0 position - it never moved when the Case Studies and
+          Engine-onward sections below were pushed down (twice) to add more
+          breathing room. These two layers re-align it to the content's new
+          position, each sourcing the same image shifted up by exactly the
+          delta its section was pushed down by, so the gradient-to-black
+          transition baked into the artwork lines up with the content again
+          instead of appearing early, mid-section. */}
+      <div style={{ position: "absolute", left: "0", top: "2585px", width: "1440px", height: "724px", backgroundImage: "url('/assets/home-bg.png')", backgroundSize: "1440px 7340px", backgroundPosition: "0 -2576px", backgroundRepeat: "no-repeat" }}></div>
+      <div style={{ position: "absolute", left: "0", top: "3290px", width: "1440px", height: "4150px",  backgroundSize: "1440px 7340px", backgroundPosition: "0 -3240px", backgroundRepeat: "no-repeat" }}></div>
 
       {/* ============ NAV ============ */}
       <Link href={"/"} aria-label={"TriHelix home"} style={{ position: "absolute", left: "100px", top: "46px" }}><img src={"/assets/logo-big.webp"} alt={"TriHelix — Clarity. Delivered."} style={{ display: "block", width: "111px" }} /></Link>
@@ -64,12 +73,12 @@ export default function HomePage() {
 
       {/* ============ HERO ============ */}
       <h1 className="rise" style={{ position: "absolute", left: "100px", top: "190.5px", margin: "0", fontSize: "68px", lineHeight: "79.5px", fontWeight: "400", letterSpacing: "0.1px", whiteSpace: "nowrap" }}>Most AI investment goes<br />where it&rsquo;s easy, not where it<br />matters.</h1>
-      <p style={{ position: "absolute", left: "100px", top: "449px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "34px", whiteSpace: "nowrap" }}>TriHelix identifies where AI can actually impact revenue, cost or risk &mdash; with precision.</p>
-      <p style={{ position: "absolute", left: "100px", top: "506px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "23.6px", lineHeight: "28px", fontWeight: "600" }}>Clarity. Delivered.</p>
+      <p className="rise" style={{ position: "absolute", left: "100px", top: "449px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "34px", whiteSpace: "nowrap" }}>TriHelix identifies where AI can actually impact revenue, cost or risk &mdash; with precision.</p>
+      <p className="rise" style={{ position: "absolute", left: "100px", top: "506px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "23.6px", lineHeight: "28px", fontWeight: "600" }}>Clarity. Delivered.</p>
       <p style={{ position: "absolute", left: "100px", top: "560px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "18px", lineHeight: "22px", color: "rgba(255,255,255,0.86)" }}>Schedule your first call. 60 min. Free. No obligation.</p>
       <Link onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event("trx:contact")); }} className="cta cta-blue" href={"/contact"} style={{ position: "absolute", left: "100px", top: "607px", width: "175px", height: "41px", borderRadius: "999px", background: "#4499ff", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px" }}>Schedule your call</Link>
 
-      <div style={{ position: "absolute", left: "100px", top: "750px", width: "1240px", height: "166px", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.10)", display: "grid", gridTemplateColumns: "276px 298px 308px 358px", alignItems: "center", fontSize: "26px", lineHeight: "37px", textAlign: "center" }}>
+      <div className="rise" style={{ position: "absolute", left: "100px", top: "750px", width: "1240px", height: "166px", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.10)", display: "grid", gridTemplateColumns: "276px 298px 308px 358px", alignItems: "center", fontSize: "26px", lineHeight: "37px", textAlign: "center" }}>
         <div>25+ Years of<br />Experience</div>
         <div style={{ borderLeft: "1px solid rgba(255,255,255,0.2)" }}>Patented MC&sup3;<br />Framework</div>
         <div style={{ borderLeft: "1px solid rgba(255,255,255,0.2)" }}>Enterprise<br />Engineering</div>
@@ -121,15 +130,15 @@ export default function HomePage() {
       </div>
 
       {/* Review 10-Sep: the three cards needed somewhere to go. */}
-      <Link className="cta cta-blue" href={"/approach"} style={{ position: "absolute", left: "100px", top: "2440px", width: "302px", height: "41px", borderRadius: "999px", background: "#4499ff", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px" }}>Learn more about TriHelix Approach</Link>
+      <Link className="cta cta-blue" href={"/approach"} style={{ position: "absolute", left: "100px", top: "2481px", width: "302px", height: "41px", borderRadius: "999px", background: "#4499ff", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px" }}>Learn more about TriHelix Approach</Link>
 
       {/* ============ CASE CAROUSEL ============ */}
       {/* CASE-LABEL */}
       {/* CASE-LABEL */}
-<div style={{ position: "absolute", left: "100px", top: "2581px", height: "39px", padding: "0 15px", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.34)", display: "flex", alignItems: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.92)" }}>Case Studies</div>
-<h2 style={{ position: "absolute", left: "100px", top: "2638px", margin: "0", fontSize: "52px", lineHeight: "62px", fontWeight: "400", letterSpacing: "0.3px", whiteSpace: "nowrap" }}>Ideas are easy.<br />Making them<br />work is harder.</h2>
-<p style={{ position: "absolute", left: "100px", top: "2864px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "31px", whiteSpace: "nowrap" }}>Real transformation isn&rsquo;t measured<br />by the size of the programme. It&rsquo;s<br />measured by what changes in the<br />business. Explore how TriHelix has<br />turned targeted interventions into<br />measurable outcomes.</p>
-<div {...swipe} style={{ position: "absolute", left: "630px", top: "2576px", width: "810px", height: "509px", overflow: "hidden", ...swipe.style }}>
+<div style={{ position: "absolute", left: "100px", top: "2621px", height: "39px", padding: "0 15px", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.34)", display: "flex", alignItems: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.92)" }}>Case Studies</div>
+<h2 style={{ position: "absolute", left: "100px", top: "2678px", margin: "0", fontSize: "52px", lineHeight: "62px", fontWeight: "400", letterSpacing: "0.3px", whiteSpace: "nowrap" }}>Ideas are easy.<br />Making them<br />work is harder.</h2>
+<p style={{ position: "absolute", left: "100px", top: "2904px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "31px", whiteSpace: "nowrap" }}>Real transformation isn&rsquo;t measured<br />by the size of the programme. It&rsquo;s<br />measured by what changes in the<br />business. Explore how TriHelix has<br />turned targeted interventions into<br />measurable outcomes.</p>
+<div {...swipe} style={{ position: "absolute", left: "630px", top: "2616px", width: "810px", height: "509px", overflow: "hidden", ...swipe.style }}>
         <div ref={trackRef} style={{ position: "absolute", left: "0", top: "0", display: "flex", gap: "46px", transition: "transform 520ms cubic-bezier(0.4, 0, 0.2, 1)" }}>
           {slides.map((slide, i) => (<React.Fragment key={i}>
             <Link href={"/case-studies"} className="case-link"  style={{ position: "relative", width: "702px", height: "509px", borderRadius: "26px", overflow: "hidden", flex: "0 0 auto", display: "block" }}>
@@ -146,29 +155,34 @@ export default function HomePage() {
         </div>
       </div>
       {slide > 0 && (
-        <button type={"button"} onClick={prev} aria-label={"Previous case study"} style={{ position: "absolute", left: "536px", top: "2764px", width: "58px", height: "58px", padding: "0", border: "0", borderRadius: "999px", background: "transparent", cursor: "pointer" }}>
+        <button type={"button"} onClick={prev} aria-label={"Previous case study"} style={{ position: "absolute", left: "536px", top: "2804px", width: "58px", height: "58px", padding: "0", border: "0", borderRadius: "999px", background: "transparent", cursor: "pointer" }}>
           <CircleArrow dir="left" />
         </button>
       )}
-      <button type={"button"} onClick={next} aria-label={"Next case study"} style={{ position: "absolute", left: "1368px", top: "2764px", width: "58px", height: "58px", padding: "0", border: "0", borderRadius: "999px", background: "transparent", cursor: "pointer" }}>
+      <button type={"button"} onClick={next} aria-label={"Next case study"} style={{ position: "absolute", left: "1368px", top: "2804px", width: "58px", height: "58px", padding: "0", border: "0", borderRadius: "999px", background: "transparent", cursor: "pointer" }}>
         <CircleArrow dir="right" />
       </button>
-      <div style={{ position: "absolute", left: "941px", top: "3109px", display: "flex", gap: "28px" }}>
+      {/* Dots and the "View case studies" button share one bottom edge
+          (3160px) so the section closes on a single clean line, with a
+          deliberate 180px gap before the Engine section - replacing what
+          was an unintentional 177px/2px-misaligned gap left over from
+          earlier, unrelated spacing edits. */}
+      <div style={{ position: "absolute", left: "941px", top: "3146px", display: "flex", gap: "28px" }}>
         {dots.map((dot, i) => (<React.Fragment key={i}>
           <button type={"button"} onClick={dot.go} style={{ width: "14px", height: "14px", padding: "0", borderRadius: "999px", cursor: "pointer", border: "1px solid rgba(255,255,255,0.9)", background: `${dot.bg}` }}></button>
         </React.Fragment>))}
       </div>
 
-      <Link className="cta cta-white" href={"/case-studies"} style={{ position: "absolute", left: "100px", top: "3080px", width: "196px", height: "41px", borderRadius: "999px", background: "#ffffff", color: "#16161b", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px" }}>View case studies</Link>
+      <Link className="cta cta-white" href={"/case-studies"} style={{ position: "absolute", left: "100px", top: "3119px", width: "196px", height: "41px", borderRadius: "999px", background: "#ffffff", color: "#16161b", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px" }}>View case studies</Link>
 
       {/* ============ ENGINE ============ */}
-      <div style={{ position: "absolute", left: "100px", top: "3240px", height: "39px", padding: "0 15px", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.34)", display: "flex", alignItems: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.92)" }}>Engine</div>
-      <h2 style={{ position: "absolute", left: "100px", top: "3298px", margin: "0", fontSize: "52px", lineHeight: "62px", fontWeight: "400", letterSpacing: "0.3px", whiteSpace: "nowrap" }}>Transformation happens at the intersection of<br />three things.</h2>
-      <p style={{ position: "absolute", left: "100px", top: "3463px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "30px", whiteSpace: "nowrap" }}>Our advantage comes from bringing People, Technology and Workflow into the same transformation conversation&mdash;<br />so what gets built is valuable, usable and adopted.</p>
-      <img src={"/assets/People.png"} alt={""} style={{ position: "absolute", left: "129px", top: "3604px", width: "142px" }} />
-      <img src={"/assets/Technology.png"} alt={""} style={{ position: "absolute", left: "553px", top: "3588px", width: "151px" }} />
-      <img src={"/assets/Workflows.png"} alt={""} style={{ position: "absolute", left: "985px", top: "3584px", width: "145px" }} />
-      <div style={{ position: "absolute", left: "100px", top: "3792px", width: "1240px", display: "grid", gridTemplateColumns: "388px 420px 432px", fontFamily: "'IBM Plex Sans', sans-serif" }}>
+      <div style={{ position: "absolute", left: "100px", top: "3290px", height: "39px", padding: "0 15px", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.34)", display: "flex", alignItems: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.92)" }}>Engine</div>
+      <h2 style={{ position: "absolute", left: "100px", top: "3348px", margin: "0", fontSize: "52px", lineHeight: "62px", fontWeight: "400", letterSpacing: "0.3px", whiteSpace: "nowrap" }}>Transformation happens at the intersection of<br />three things.</h2>
+      <p style={{ position: "absolute", left: "100px", top: "3513px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "30px", whiteSpace: "nowrap" }}>Our advantage comes from bringing People, Technology and Workflow into the same transformation conversation&mdash;<br />so what gets built is valuable, usable and adopted.</p>
+      <img src={"/assets/People.png"} alt={""} style={{ position: "absolute", left: "129px", top: "3654px", width: "142px" }} />
+      <img src={"/assets/Technology.png"} alt={""} style={{ position: "absolute", left: "553px", top: "3638px", width: "151px" }} />
+      <img src={"/assets/Workflows.png"} alt={""} style={{ position: "absolute", left: "985px", top: "3634px", width: "145px" }} />
+      <div style={{ position: "absolute", left: "100px", top: "3842px", width: "1240px", display: "grid", gridTemplateColumns: "388px 420px 432px", fontFamily: "'IBM Plex Sans', sans-serif" }}>
         <div>
           <div style={{ fontSize: "32px", lineHeight: "38px" }}>PEOPLE</div>
           <div style={{ fontSize: "15px", lineHeight: "22px", fontWeight: "600" }}>But execution stalls.</div>
@@ -187,20 +201,20 @@ export default function HomePage() {
       </div>
 
       {/* ============ MC3 ============ */}
-      <img src={"/assets/home-mc3-2.webp"} alt={"MC³ framework"} style={{ position: "absolute", left: "838px", top: "4094px", width: "496px", height: "590px", borderRadius: "18px" }} />
-      <div style={{ position: "absolute", left: "100px", top: "4156px", height: "39px", padding: "0 15px", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.34)", display: "flex", alignItems: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.92)" }}>Framework</div>
-      <h2 style={{ position: "absolute", left: "100px", top: "4211px", margin: "0", fontSize: "53.5px", lineHeight: "62px", fontWeight: "400", letterSpacing: "0.3px" }}>Patented MC&sup3;</h2>
-      <p style={{ position: "absolute", left: "100px", top: "4308px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "30px", fontWeight: "600" }}>The MC3&reg; framework is a structured change<br />methodology designed to move people from<br />initial awareness to sustained operational<br />capability.</p>
-      <p style={{ position: "absolute", left: "100px", top: "4463px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16px", lineHeight: "22px", color: "rgba(255,255,255,0.88)" }}>Since 2003, this patented model has been an integral driver<br />of Nihilent&rsquo;s business transformation work, helping<br />organizations successfully navigate complex change by<br />aligning performance with execution</p>
+      <img src={"/assets/home-mc3-2.webp"} alt={"MC³ framework"} style={{ position: "absolute", left: "838px", top: "4194px", width: "496px", height: "590px", borderRadius: "18px" }} />
+      <div style={{ position: "absolute", left: "100px", top: "4256px", height: "39px", padding: "0 15px", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.34)", display: "flex", alignItems: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.92)" }}>Framework</div>
+      <h2 style={{ position: "absolute", left: "100px", top: "4311px", margin: "0", fontSize: "53.5px", lineHeight: "62px", fontWeight: "400", letterSpacing: "0.3px" }}>Patented MC&sup3;</h2>
+      <p style={{ position: "absolute", left: "100px", top: "4408px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "30px", fontWeight: "600" }}>The MC3&reg; framework is a structured change<br />methodology designed to move people from<br />initial awareness to sustained operational<br />capability.</p>
+      <p style={{ position: "absolute", left: "100px", top: "4563px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16px", lineHeight: "22px", color: "rgba(255,255,255,0.88)" }}>Since 2003, this patented model has been an integral driver<br />of Nihilent&rsquo;s business transformation work, helping<br />organizations successfully navigate complex change by<br />aligning performance with execution</p>
 
       {/* ============ PERSPECTIVE ============ */}
-      <img src={"/assets/home-office-2.webp"} alt={""} style={{ position: "absolute", left: "100px", top: "4864px", width: "494px", height: "550px", borderRadius: "20px", objectFit: "cover" }} />
-      <div style={{ position: "absolute", left: "740px", top: "4948px", height: "39px", padding: "0 15px", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.34)", display: "flex", alignItems: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.92)" }}>Perspective</div>
-      <h2 style={{ position: "absolute", left: "741px", top: "5006px", margin: "0", fontSize: "52px", lineHeight: "62px", fontWeight: "400", letterSpacing: "0.3px", whiteSpace: "nowrap" }}>We don&rsquo;t just advise on<br />what&rsquo;s possible. We<br />build it.</h2>
-      <p style={{ position: "absolute", left: "740px", top: "5235px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "31px", whiteSpace: "nowrap" }}>Our advantage comes from bringing People, Technology<br />and Design into the same transformation conversation-<br />so what gets built is valuable, usable and adopted.</p>
+      <img src={"/assets/home-office-2.webp"} alt={""} style={{ position: "absolute", left: "100px", top: "4964px", width: "494px", height: "550px", borderRadius: "20px", objectFit: "cover" }} />
+      <div style={{ position: "absolute", left: "740px", top: "5048px", height: "39px", padding: "0 15px", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.34)", display: "flex", alignItems: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.92)" }}>Perspective</div>
+      <h2 style={{ position: "absolute", left: "741px", top: "5106px", margin: "0", fontSize: "52px", lineHeight: "62px", fontWeight: "400", letterSpacing: "0.3px", whiteSpace: "nowrap" }}>We don&rsquo;t just advise on<br />what&rsquo;s possible. We<br />build it.</h2>
+      <p style={{ position: "absolute", left: "740px", top: "5335px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "31px", whiteSpace: "nowrap" }}>Our advantage comes from bringing People, Technology<br />and Design into the same transformation conversation-<br />so what gets built is valuable, usable and adopted.</p>
 
-      <div style={{ position: "absolute", left: "100px", top: "5480px", width: "1240px", height: "1px", background: "rgba(255,255,255,0.16)" }}></div>
-      <div style={{ position: "absolute", left: "100px", top: "5520px", width: "1240px", display: "grid", gridTemplateColumns: "416px 418px 406px" }}>
+      <div style={{ position: "absolute", left: "100px", top: "5580px", width: "1240px", height: "1px", background: "rgba(255,255,255,0.16)" }}></div>
+      <div style={{ position: "absolute", left: "100px", top: "5620px", width: "1240px", display: "grid", gridTemplateColumns: "416px 418px 406px" }}>
         <div>
           <div style={{ fontSize: "29.7px", lineHeight: "34px" }}>Full-stack engineering</div>
           <div style={{ marginTop: "29px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "17.5px", lineHeight: "21px", color: "rgba(255,255,255,0.88)" }}>Data &rarr; AI &rarr; MLOps &rarr; productisation</div>
@@ -214,10 +228,10 @@ export default function HomePage() {
           <div style={{ marginTop: "29px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "17.5px", lineHeight: "21px", color: "rgba(255,255,255,0.88)" }}>If AI isn&rsquo;t the right answer, we&rsquo;ll tell you before<br />you invest.</div>
         </div>
       </div>
-      <div style={{ position: "absolute", left: "100px", top: "5664px", width: "1240px", height: "1px", background: "rgba(255,255,255,0.16)" }}></div>
+      <div style={{ position: "absolute", left: "100px", top: "5764px", width: "1240px", height: "1px", background: "rgba(255,255,255,0.16)" }}></div>
 
       {/* ============ BUILT ON 25+ ============ */}
-      <div style={{ position: "absolute", left: "100px", top: "5742px", width: "1240px", height: "512px", borderRadius: "22px", border: "1px solid rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.10)" }}>
+      <div style={{ position: "absolute", left: "100px", top: "5842px", width: "1240px", height: "512px", borderRadius: "22px", border: "1px solid rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.10)" }}>
         <h3 style={{ position: "absolute", left: "61px", top: "81px", margin: "0", fontSize: "53px", lineHeight: "62px", fontWeight: "400", letterSpacing: "0.3px", whiteSpace: "nowrap" }}>Built on 25+ years of transformation<br />experience.</h3>
         <p style={{ position: "absolute", left: "61px", top: "258px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "22.3px", lineHeight: "30px", whiteSpace: "nowrap" }}>AI can create enormous value&mdash;but not every problem needs AI. We help leaders make informed decisions<br />before committing significant resources, and build only where the business case is real</p>
         <div style={{ position: "absolute", left: "61px", top: "359px", width: "1150px", display: "grid", gridTemplateColumns: "258px 260px 258px 366px" }}>
@@ -241,14 +255,14 @@ export default function HomePage() {
       </div>
 
       {/* ============ CTA ============ */}
-      <div style={{ position: "absolute", left: "100px", top: "6342px", width: "1240px", height: "439px", borderRadius: "24px", overflow: "hidden", backgroundColor: "#9c4a10", backgroundImage: "url('assets/home-cta-grad-2.webp')", backgroundSize: "100% 100%" , border: "1px solid rgba(255,255,255,0.14)"}}>
+      <div style={{ position: "absolute", left: "100px", top: "6442px", width: "1240px", height: "439px", borderRadius: "24px", overflow: "hidden", backgroundColor: "#9c4a10", backgroundImage: "url('assets/home-cta-grad-2.webp')", backgroundSize: "100% 100%" , border: "1px solid rgba(255,255,255,0.14)"}}>
         <h3 style={{ position: "absolute", left: "61px", top: "60px", margin: "0", fontSize: "68.7px", lineHeight: "78px", fontWeight: "400", letterSpacing: "0.1px", whiteSpace: "nowrap" }}>Start with a conversation.<br />Not a commitment.</h3>
         <p style={{ position: "absolute", left: "61px", top: "238px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "30px", fontWeight: "500", whiteSpace: "nowrap" }}>Bring us the transformation challenge you&rsquo;re wrestling with. In 60 minutes, we&rsquo;ll help you<br />understand what&rsquo;s really at stake and what deserves attention next.</p>
         <Link onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event("trx:contact")); }} className="cta cta-white" href={"/contact"} style={{ position: "absolute", left: "60px", top: "339px", width: "256px", height: "40px", borderRadius: "999px", background: "#ffffff", color: "#16161b", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px" }}>Schedule your 60-minute call</Link>
       </div>
 
       {/* ============ FOOTER ============ */}
-      <Footer top={6884} />
+      <Footer top={6984} />
 
         </div>
       </div>

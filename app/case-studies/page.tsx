@@ -114,7 +114,7 @@ export default function CaseStudiesPage() {
       </React.Fragment>))}
 
       {/* CTA */}
-      <div style={{ position: "absolute", left: "100px", top: "7501px", width: "1240px", height: "440px", borderRadius: "24px", overflow: "hidden", backgroundColor: "#4b3f9e", backgroundSize: "100% 100%" , border: "1px solid rgba(255,255,255,0.14)"}}>
+      <div style={{ position: "absolute", left: "100px", top: "7501px", width: "1240px", height: "440px", borderRadius: "24px", overflow: "hidden", backgroundColor: "#1668a8", backgroundImage: "url('/assets/about-cta-grad-2.webp')", backgroundSize: "100% 100%", border: "0px solid rgba(255,255,255,0.14)"}}>
         <h3 style={{ position: "absolute", left: "62px", top: "59px", margin: "0", fontSize: "68px", lineHeight: "76px", fontWeight: "400", letterSpacing: "0.1px", whiteSpace: "nowrap" }}>Let&rsquo;s talk about what<br />comes next.</h3>
         <p style={{ position: "absolute", left: "60px", top: "240px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "23.6px", lineHeight: "31px", fontWeight: "600", whiteSpace: "nowrap" }}>The right transformation opportunity may not be obvious yet.<br />That&rsquo;s where a conversation begins.</p>
         <Link onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event("trx:contact")); }} className="cta cta-white" href={"/contact"} style={{ position: "absolute", left: "60px", top: "339px", width: "256px", height: "40px", borderRadius: "999px", background: "#ffffff", color: "#16161b", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px" }}>Schedule your 60-minute call</Link>

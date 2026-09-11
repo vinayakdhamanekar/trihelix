@@ -51,7 +51,7 @@ const inputStyle: React.CSSProperties = {
   fontFamily: "'IBM Plex Sans', sans-serif", fontSize: 17, color: "#17181a", outline: "none",
 };
 const labelStyle: React.CSSProperties = {
-  display: "block", fontSize: 15, lineHeight: "21px", color: "#4d5157",
+  display: "block", fontSize: 15, lineHeight: "21px", color: "#2b2e33",
 };
 
 /**

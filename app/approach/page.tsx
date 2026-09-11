@@ -116,6 +116,14 @@ export default function ApproachPage() {
       {/* STAGES 01 / 02 / 03 */}
       {stages.map((s, i) => (<React.Fragment key={i}>
         <div style={{ position: "absolute", left: "0", top: "0", width: "1440px" }}>
+          {/* VALIDATE sits where the shared approach-bg.png's diagonal glow has
+              already swept over to the right edge (unlike SENSE/EXECUTE, which
+              get more of it), leaving this section's left side flat black.
+              Adding a matching glow here rather than repositioning the shared
+              background, which would misalign the other two stages. */}
+          {i === 1 && (
+            <div aria-hidden="true" style={{ position: "absolute", left: "0", top: `${s.yNum - 60}px`, width: "900px", height: "1120px", background: "radial-gradient(ellipse 620px 620px at 15% 45%, rgba(124,58,237,0.30), transparent 68%)", pointerEvents: "none" }} />
+          )}
           <div style={{ position: "absolute", left: "100px", top: `${s.yNum}px`, fontSize: "72px", lineHeight: "76px", fontWeight: "400" }}><Rich v={s.num} /></div>
           <div style={{ position: "absolute", left: "100px", top: `${s.yName}px`, fontSize: "54px", lineHeight: "62px", fontWeight: "400", letterSpacing: "0.3px" }}><Rich v={s.name} /></div>
           <img src={`${s.icon}`} alt={""} style={{ position: "absolute", left: `${s.iconX}px`, top: `${s.iconY}px`, width: `${s.iconW}px` }} />

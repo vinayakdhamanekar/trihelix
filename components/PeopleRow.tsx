@@ -25,7 +25,7 @@ export default function PeopleRow({ people, top }: { people: Person[]; top: numb
   const max = Math.max(0, people.length - PER_VIEW);
   const at = Math.min(i, max);
   const go = (d: number) => setI((v) => Math.min(max, Math.max(0, v + d)));
-  const swipe = useSwipe(() => go(-1), () => go(1));
+  const swipe = useSwipe(() => go(-PER_VIEW), () => go(PER_VIEW));
 
   return (
     <>
@@ -59,7 +59,7 @@ export default function PeopleRow({ people, top }: { people: Person[]; top: numb
 
       {at > 0 && (
         <button
-          type="button" onClick={() => go(-1)} aria-label="Previous people"
+          type="button" onClick={() => go(-PER_VIEW)} aria-label="Previous people"
           style={{ position: "absolute", left: "36px", top: `${top + 168}px`, width: "58px", height: "58px", padding: 0, border: 0, borderRadius: "999px", background: "transparent", cursor: "pointer", zIndex: 3 }}
         >
           <CircleArrow dir="left" />
@@ -67,7 +67,7 @@ export default function PeopleRow({ people, top }: { people: Person[]; top: numb
       )}
       {at < max && (
         <button
-          type="button" onClick={() => go(1)} aria-label="More people"
+          type="button" onClick={() => go(PER_VIEW)} aria-label="More people"
           style={{ position: "absolute", left: "1346px", top: `${top + 168}px`, width: "58px", height: "58px", padding: 0, border: 0, borderRadius: "999px", background: "transparent", cursor: "pointer", zIndex: 3 }}
         >
           <CircleArrow dir="right" />

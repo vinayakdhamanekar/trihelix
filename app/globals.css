@@ -111,11 +111,12 @@ a, button, [role="button"], .navlink, .social, .logo-link { cursor: pointer; }
 /* --- Gentle load-in ------------------------------------------
    Text and images fade up once, on first paint. Anything the
    reader has asked not to animate is left alone. */
-@keyframes trx-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-.rise { animation: trx-rise .62s cubic-bezier(.22,.61,.36,1) both; }
-.rise-1 { animation-delay: .06s; }
-.rise-2 { animation-delay: .13s; }
-.rise-3 { animation-delay: .2s; }
+@keyframes trx-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.rise { animation: trx-rise .9s cubic-bezier(.22,.61,.36,1) both; }
+.rise-1 { animation-delay: .12s; }
+.rise-2 { animation-delay: .24s; }
+.rise-3 { animation-delay: .36s; }
+.rise-4 { animation-delay: .48s; }
 @media (prefers-reduced-motion: reduce) {
   .rise { animation: none; }
   .cta, .navlink { transition: none; }
@@ -126,10 +127,10 @@ a, button, [role="button"], .navlink, .social, .logo-link { cursor: pointer; }
   from { opacity: 0; transform: translateY(10px) scale(.985); }
   to   { opacity: 1; transform: none; }
 }
-/* Its CTA inverts to a black outline with black text on hover. */
+/* Its CTA fills solid black with white text on hover. */
 .cta-onlight:hover, .cta-onlight:focus-visible {
-  background: transparent !important;
-  color: #17181a !important;
+  background: #17181a !important;
+  color: #ffffff !important;
   border-color: #17181a;
 }
 @media (prefers-reduced-motion: reduce) { [style*="trx-pop"] { animation: none !important; } }
