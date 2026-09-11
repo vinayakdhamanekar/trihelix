@@ -298,7 +298,7 @@ export default function MobApproach({ bare = false }: { bare?: boolean }) {
                 </div>
               </div>
               <div style={{ position: "absolute", left: "191px", top: "-20px", width: "150px", height: "150px" }}>
-                <img src="/assets/icon-sense-2.webp" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }} />
+                <img src="/assets/Sense.png" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }} />
               </div>
             </div>
             <div style={{ position: "absolute", left: "0px", top: "142px", width: "361px", height: "409px" }}>
@@ -378,7 +378,7 @@ export default function MobApproach({ bare = false }: { bare?: boolean }) {
                 </div>
               </div>
               <div style={{ position: "absolute", left: "239px", top: "-20px", width: "150px", height: "150px" }}>
-                <img src="/assets/icon-validate-2.webp" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }} />
+                <img src="/assets/Validate.png" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }} />
               </div>
             </div>
             <div style={{ position: "absolute", left: "0px", top: "142px", width: "361px", height: "423px" }}>
@@ -464,7 +464,7 @@ export default function MobApproach({ bare = false }: { bare?: boolean }) {
                 </div>
               </div>
               <div style={{ position: "absolute", left: "239px", top: "-20px", width: "150px", height: "150px" }}>
-                <img src="/assets/icon-execute-2.webp" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }} />
+                <img src="/assets/Execute.png" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }} />
               </div>
             </div>
             <div style={{ position: "absolute", left: "0px", top: "142px", width: "361px", height: "363px" }}>

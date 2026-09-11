@@ -3,7 +3,7 @@
 
 export const stagesCards = [
   {
-    "icon": "assets/icon-sense-2.webp",
+    "icon": "assets/Sense.png",
     "title": "Sense",
     "head": {
       "__tag": "span",
@@ -18,7 +18,7 @@ export const stagesCards = [
     "duration": "60 Minutes"
   },
   {
-    "icon": "assets/icon-validate-2.webp",
+    "icon": "assets/Validate.png",
     "title": "Validate",
     "head": {
       "__tag": "span",
@@ -33,7 +33,7 @@ export const stagesCards = [
     "duration": "3 Weeks"
   },
   {
-    "icon": "assets/icon-execute-2.webp",
+    "icon": "assets/Execute.png",
     "title": "Execute",
     "head": {
       "__tag": "span",
@@ -53,7 +53,7 @@ export const stages = [
   {
     "num": "01",
     "name": "SENSE",
-    "icon": "assets/icon-sense-2.webp",
+    "icon": "assets/Sense.png",
     "iconX": 1099,
     "iconY": 2403,
     "iconW": 198,
@@ -168,7 +168,7 @@ export const stages = [
   {
     "num": "02",
     "name": "VALIDATE",
-    "icon": "assets/icon-validate-2.webp",
+    "icon": "assets/Validate.png",
     "iconX": 1100,
     "iconY": 3521,
     "iconW": 199,
@@ -258,7 +258,7 @@ export const stages = [
   {
     "num": "03",
     "name": "EXECUTE",
-    "icon": "assets/icon-execute-2.webp",
+    "icon": "assets/Execute.png",
     "iconX": 1093,
     "iconY": 4719,
     "iconW": 210,

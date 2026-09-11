@@ -1,14 +1,13 @@
 "use client";
-import { useState } from "react";
 import Link from "next/link";
 import React from "react";
 import Rich from "@/components/Rich";
 import { useStageFit } from "@/components/useStageFit";
 import { leaders, regional, experts } from "@/lib/about-data";
 import PeopleRow from "@/components/PeopleRow";
-import ContactForm from "@/components/ContactForm";
 import MobContact from "@/components/mobile/MobContact";
 import ContactModal from "@/components/ContactModal";
+import Footer from "@/components/Footer";
 import ScrollTop from "@/components/ScrollTop";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -16,9 +15,6 @@ import ScrollReveal from "@/components/ScrollReveal";
  *  Press "G" to difference-blend the Figma reference over the page. */
 export default function ContactPage() {
   const { stageRef, artRef } = useStageFit(1440, 5344);
-  const [modalOpen, setModalOpen] = useState(true);
-  const modalDisplay = modalOpen ? "block" : "none";
-  const closeModal = () => setModalOpen(false);
 
   return (
     <>
@@ -114,57 +110,9 @@ export default function ContactPage() {
       </div>
 
       {/* FOOTER */}
-      <Link href={"/"} aria-label={"TriHelix home"} style={{ position: "absolute", left: "100px", top: "4890px", display: "block", width: "242px" }}><img src={"/assets/logo-big.webp"} alt={"TriHelix"} style={{ display: "block", width: "242px" }} /></Link>
-      <p style={{ position: "absolute", left: "100px", top: "4983px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "12.5px", lineHeight: "20px", color: "rgba(255,255,255,0.7)" }}>TriHelix is a proprietary framework of Nihilent LTD.</p>
-      <div style={{ position: "absolute", left: "100px", top: "5026px", width: "1240px", height: "1px", background: "rgba(255,255,255,0.16)" }}></div>
-      <div style={{ position: "absolute", left: "100px", top: "5078px", width: "1240px", display: "grid", gridTemplateColumns: "212px 786px 242px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16.5px", lineHeight: "22px" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "19px" }}>
-          <Link className="navlink" href={"/approach"}>Our Approach</Link>
-          <Link className="navlink" href={"/case-studies"}>Case Studies</Link>
-          <Link className="navlink" href={"/about"}>About Us</Link>
-          <Link onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event("trx:contact")); }} className="navlink" aria-current="page" href={"/contact"}>Contact Us</Link>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "19px" }}>
-          <a className="navlink navlink-on" href={"#"}>Privacy Policy</a>
-          <a className="navlink navlink-on" href={"#"}>Terms of Use</a>
-          <a className="navlink navlink-on" href={"#"}>Cookie Settings</a>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "19px", whiteSpace: "nowrap" }}>
-          <a className="navlink navlink-on" href={"#"}>Modern Slavery Act, 2015</a>
-          <a className="navlink navlink-on" href={"#"}>Carbon Neutrality Statement</a>
-          <a className="navlink navlink-on" href={"#"}>Carbon Reduction Plan Guidance</a>
-        </div>
-      </div>
-      <p style={{ position: "absolute", left: "0", top: "5266px", width: "1440px", margin: "0", textAlign: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16.3px", lineHeight: "20px", color: "rgba(255,255,255,0.86)" }}>&copy; 2026 TriHelix. All rights reserved.</p>
-      <div style={{ position: "absolute", left: "1208px", top: "5264px", display: "flex", alignItems: "center", gap: "22px" }}>
-        <a className="social" href="https://www.linkedin.com/company/nihilent/" target="_blank" rel="noopener noreferrer" aria-label="TriHelix on LinkedIn"><img src="/assets/icon-linkedin.webp" alt="" style={{ display: "block", width: "22px" }} /></a>
-        <a className="social" href="mailto:Info@nihilent.com" aria-label="Email Info@nihilent.com"><img src="/assets/icon-email.webp" alt="" style={{ display: "block", width: "22px" }} /></a>
-        <a className="social" href="tel:+912039846100" aria-label="Call +91 (20) 3984 6100"><img src="/assets/icon-phone.webp" alt="" style={{ display: "block", width: "20px" }} /></a>
-      </div>
+      <Footer top={4890} current="contact" />
       </div>
 
-      <div onClick={closeModal} style={{ position: "absolute", left: "0", top: "0", width: "1440px", height: "5344px", display: modalDisplay, background: "rgba(4,4,12,0.55)", backdropFilter: "blur(9px) saturate(120%)", WebkitBackdropFilter: "blur(9px) saturate(120%)", cursor: "pointer" }}></div>
-
-      <div style={{ position: "absolute", left: "96px", top: "175px", width: "1240px", height: "550px", borderRadius: "26px", display: `${modalDisplay}`, animation: "trx-pop .34s cubic-bezier(.22,.61,.36,1) both", backgroundColor: "#eef0f2", backgroundImage: "url(\'/assets/contact-modal-bg.webp\')", backgroundSize: "100% 100%", overflow: "hidden", boxShadow: "0 40px 90px rgba(0,0,0,0.45)", color: "#17181a" }}>
-        <button type={"button"} onClick={closeModal} aria-label={"Close"} style={{ position: "absolute", left: "1170px", top: "39px", width: "28px", height: "28px", padding: "0", border: "0", background: "transparent", cursor: "pointer", color: "#17181a", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "30px", lineHeight: "28px", fontWeight: "300" }}>&#10005;</button>
-
-        <div style={{ position: "absolute", left: "83px", top: "98px", fontSize: "56px", lineHeight: "62px", fontWeight: "400", letterSpacing: "0.2px", color: "#17181a" }}>Get in touch</div>
-        <div style={{ position: "absolute", left: "83px", top: "174px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16px", lineHeight: "22px", color: "#3d4045" }}>Book your free 60-minute conversation.</div>
-
-        <div style={{ position: "absolute", left: "84px", top: "342px", display: "flex", gap: "21px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "15px", lineHeight: "21px", color: "#2b2e33" }}>
-          <svg width={"16"} height={"20"} viewBox={"0 0 16 20"} fill={"none"} style={{ flex: "0 0 auto", marginTop: "3px" }}><path d={"M8 0.9C4.2 0.9 1.1 4 1.1 7.8c0 5.2 6.1 11 6.4 11.2.3.3.7.3 1 0 .3-.2 6.4-6 6.4-11.2C14.9 4 11.8.9 8 .9Zm0 10.2a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6Z"} fill={"#2b2e33"}></path></svg>
-          <div>
-            <div style={{ fontWeight: "600" }}>Nihilent Ltd.</div>
-            <div>4th Floor, D&rsquo; Block, WEIKFIELD IT CITI</div>
-            <div>INFO PARK, Pune - Nagar Rd, Sakore</div>
-            <div>Nagar, Viman Nagar, Pune, Maharashtra</div>
-            <div>411014</div>
-          </div>
-        </div>
-
-        <ContactForm />
-      </div>
-  
         </div>
       </div>
       </div>

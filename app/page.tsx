@@ -9,6 +9,7 @@ import { useStageFit } from "@/components/useStageFit";
 import { slides } from "@/lib/home-data";
 import MobHome from "@/components/mobile/MobHome";
 import ContactModal from "@/components/ContactModal";
+import Footer from "@/components/Footer";
 import ScrollTop from "@/components/ScrollTop";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -100,19 +101,19 @@ export default function HomePage() {
       <p style={{ position: "absolute", left: "100px", top: "1906px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "30px", whiteSpace: "nowrap" }}>TriHelix replaces the traditional leap with a progressive path. Build understanding first. Prove<br />the opportunity next. Scale what works with confidence.</p>
       <div style={{ position: "absolute", left: "100px", top: "2006px", width: "1240px", display: "grid", gridTemplateColumns: "388px 388px 388px", justifyContent: "space-between" }}>
         <div className="rise rise-1" style={{ position: "relative", height: "416px", borderRadius: "22px", border: "1px solid rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.17)", pointerEvents: "none" }}>
-          <img src={"/assets/icon-sense-2.webp"} alt={""} style={{ position: "absolute", left: "61px", top: "77px", width: "115px" }} />
+          <img src={"/assets/Sense.png"} alt={""} style={{ position: "absolute", left: "20px", top: "67px", width: "140px" }} />
           <div style={{ position: "absolute", left: "39px", top: "212px", fontSize: "40px", lineHeight: "44px" }}>Sense</div>
           <div style={{ position: "absolute", left: "39px", top: "274px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "26px" }}>Find the opportunity.</div>
           <div style={{ position: "absolute", left: "38px", top: "315px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16px", lineHeight: "21px", color: "rgba(255,255,255,0.9)" }}>60-minute CXO conversation<br />Understand the ambition, constraints and<br />friction.</div>
         </div>
         <div className="rise rise-1" style={{ position: "relative", height: "416px", borderRadius: "22px", border: "1px solid rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.17)", pointerEvents: "none" }}>
-          <img src={"/assets/icon-validate-2.webp"} alt={""} style={{ position: "absolute", left: "63px", top: "85px", width: "114px" }} />
+          <img src={"/assets/Validate.png"} alt={""} style={{ position: "absolute", left: "20px", top: "67px", width: "140px" }} />
           <div style={{ position: "absolute", left: "39px", top: "212px", fontSize: "40px", lineHeight: "44px" }}>Validate</div>
           <div style={{ position: "absolute", left: "39px", top: "274px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "26px" }}>Prove what matters.</div>
           <div style={{ position: "absolute", left: "38px", top: "315px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16px", lineHeight: "21px", color: "rgba(255,255,255,0.9)" }}>3-week diagnostic<br />Test assumptions, identify priorities and<br />define the path to value.</div>
         </div>
         <div className="rise rise-1" style={{ position: "relative", height: "416px", borderRadius: "22px", border: "1px solid rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.17)", pointerEvents: "none" }}>
-          <img src={"/assets/icon-execute-2.webp"} alt={""} style={{ position: "absolute", left: "60px", top: "85px", width: "121px" }} />
+          <img src={"/assets/Execute.png"} alt={""} style={{ position: "absolute", left: "24px", top: "67px", width: "140px" }} />
           <div style={{ position: "absolute", left: "39px", top: "212px", fontSize: "40px", lineHeight: "44px" }}>Execute</div>
           <div style={{ position: "absolute", left: "39px", top: "274px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "26px" }}>Make it real.</div>
           <div style={{ position: "absolute", left: "38px", top: "315px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16px", lineHeight: "21px", color: "rgba(255,255,255,0.9)" }}>90- day sprint. Deploy 1-2 priority<br />initiatives and measure what changes.</div>
@@ -124,19 +125,21 @@ export default function HomePage() {
 
       {/* ============ CASE CAROUSEL ============ */}
       {/* CASE-LABEL */}
-      <div style={{ position: "absolute", left: "100px", top: "2516px", height: "39px", padding: "0 15px", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.34)", display: "flex", alignItems: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.92)" }}>Case Studies</div>
-      <h2 style={{ position: "absolute", left: "100px", top: "2573px", margin: "0", fontSize: "52px", lineHeight: "62px", fontWeight: "400", letterSpacing: "0.3px", whiteSpace: "nowrap" }}>Ideas are easy.<br />Making them<br />work is harder.</h2>
-      <p style={{ position: "absolute", left: "100px", top: "2799px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "31px", whiteSpace: "nowrap" }}>Real transformation isn&rsquo;t measured<br />by the size of the programme. It&rsquo;s<br />measured by what changes in the<br />business. Explore how TriHelix has<br />turned targeted interventions into<br />measurable outcomes.</p>
-      <div {...swipe} style={{ position: "absolute", left: "630px", top: "2546px", width: "810px", height: "509px", overflow: "hidden", ...swipe.style }}>
+      {/* CASE-LABEL */}
+<div style={{ position: "absolute", left: "100px", top: "2581px", height: "39px", padding: "0 15px", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.34)", display: "flex", alignItems: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.92)" }}>Case Studies</div>
+<h2 style={{ position: "absolute", left: "100px", top: "2638px", margin: "0", fontSize: "52px", lineHeight: "62px", fontWeight: "400", letterSpacing: "0.3px", whiteSpace: "nowrap" }}>Ideas are easy.<br />Making them<br />work is harder.</h2>
+<p style={{ position: "absolute", left: "100px", top: "2864px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "31px", whiteSpace: "nowrap" }}>Real transformation isn&rsquo;t measured<br />by the size of the programme. It&rsquo;s<br />measured by what changes in the<br />business. Explore how TriHelix has<br />turned targeted interventions into<br />measurable outcomes.</p>
+<div {...swipe} style={{ position: "absolute", left: "630px", top: "2576px", width: "810px", height: "509px", overflow: "hidden", ...swipe.style }}>
         <div ref={trackRef} style={{ position: "absolute", left: "0", top: "0", display: "flex", gap: "46px", transition: "transform 520ms cubic-bezier(0.4, 0, 0.2, 1)" }}>
           {slides.map((slide, i) => (<React.Fragment key={i}>
-            <Link href={"/case-studies"} style={{ position: "relative", width: "702px", height: "509px", borderRadius: "26px", overflow: "hidden", flex: "0 0 auto", display: "block" }}>
+            <Link href={"/case-studies"} className="case-link"  style={{ position: "relative", width: "702px", height: "509px", borderRadius: "26px", overflow: "hidden", flex: "0 0 auto", display: "block" }}>
               <img src={`${slide.img}`} alt={""} style={{ position: "absolute", left: "0", top: "0", width: "100%", height: "100%", objectFit: "fill" }} />
               <div style={{ position: "absolute", left: "0", right: "0", bottom: "0", height: "260px", background: "linear-gradient(to top, rgba(0,0,0,0.66), rgba(0,0,0,0))" }}></div>
               <div style={{ position: "absolute", left: "40px", right: "40px", bottom: "34px" }}>
                 <div style={{ fontSize: "31px", lineHeight: "40px", color: "#ffffff" }}><Rich v={slide.title} /></div>
                 <div style={{ marginTop: "10px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "15px", lineHeight: "20px", color: "rgba(255,255,255,0.94)" }}><Rich v={slide.body} /></div>
-                <span className="readlink" style={{ display: "inline-flex", alignItems: "center", gap: "7px", marginTop: "14px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "15px", fontWeight: 600, color: "#ffffff" }}>Read case study<span aria-hidden="true" style={{ fontSize: "17px", lineHeight: 1 }}>&rsaquo;</span></span>
+                <span className="readlink" style={{ display: "inline-flex", alignItems: "center", gap: "7px", marginTop: "14px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "15px", fontWeight: 600, color: "#ffffff" }}><span className="readlink-text">Read case study</span> <span aria-hidden="true" className="arrow-icon" style={{ fontSize: "17px", lineHeight: 1, display: "inline-block" }}>&rsaquo;</span></span>
+                
               </div>
             </Link>
           </React.Fragment>))}
@@ -150,21 +153,21 @@ export default function HomePage() {
       <button type={"button"} onClick={next} aria-label={"Next case study"} style={{ position: "absolute", left: "1368px", top: "2764px", width: "58px", height: "58px", padding: "0", border: "0", borderRadius: "999px", background: "transparent", cursor: "pointer" }}>
         <CircleArrow dir="right" />
       </button>
-      <div style={{ position: "absolute", left: "941px", top: "3099px", display: "flex", gap: "28px" }}>
+      <div style={{ position: "absolute", left: "941px", top: "3109px", display: "flex", gap: "28px" }}>
         {dots.map((dot, i) => (<React.Fragment key={i}>
           <button type={"button"} onClick={dot.go} style={{ width: "14px", height: "14px", padding: "0", borderRadius: "999px", cursor: "pointer", border: "1px solid rgba(255,255,255,0.9)", background: `${dot.bg}` }}></button>
         </React.Fragment>))}
       </div>
 
-      <Link className="cta cta-white" href={"/case-studies"} style={{ position: "absolute", left: "100px", top: "3020px", width: "196px", height: "41px", borderRadius: "999px", background: "#ffffff", color: "#16161b", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px" }}>View case studies</Link>
+      <Link className="cta cta-white" href={"/case-studies"} style={{ position: "absolute", left: "100px", top: "3080px", width: "196px", height: "41px", borderRadius: "999px", background: "#ffffff", color: "#16161b", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px" }}>View case studies</Link>
 
       {/* ============ ENGINE ============ */}
       <div style={{ position: "absolute", left: "100px", top: "3240px", height: "39px", padding: "0 15px", borderRadius: "999px", border: "1px solid rgba(255,255,255,0.34)", display: "flex", alignItems: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.92)" }}>Engine</div>
       <h2 style={{ position: "absolute", left: "100px", top: "3298px", margin: "0", fontSize: "52px", lineHeight: "62px", fontWeight: "400", letterSpacing: "0.3px", whiteSpace: "nowrap" }}>Transformation happens at the intersection of<br />three things.</h2>
       <p style={{ position: "absolute", left: "100px", top: "3463px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "24px", lineHeight: "30px", whiteSpace: "nowrap" }}>Our advantage comes from bringing People, Technology and Workflow into the same transformation conversation&mdash;<br />so what gets built is valuable, usable and adopted.</p>
-      <img src={"/assets/icon-people-2.webp"} alt={""} style={{ position: "absolute", left: "129px", top: "3604px", width: "142px" }} />
-      <img src={"/assets/icon-technology-2.webp"} alt={""} style={{ position: "absolute", left: "553px", top: "3588px", width: "151px" }} />
-      <img src={"/assets/icon-workflows-2.webp"} alt={""} style={{ position: "absolute", left: "985px", top: "3584px", width: "145px" }} />
+      <img src={"/assets/People.png"} alt={""} style={{ position: "absolute", left: "129px", top: "3604px", width: "142px" }} />
+      <img src={"/assets/Technology.png"} alt={""} style={{ position: "absolute", left: "553px", top: "3588px", width: "151px" }} />
+      <img src={"/assets/Workflows.png"} alt={""} style={{ position: "absolute", left: "985px", top: "3584px", width: "145px" }} />
       <div style={{ position: "absolute", left: "100px", top: "3792px", width: "1240px", display: "grid", gridTemplateColumns: "388px 420px 432px", fontFamily: "'IBM Plex Sans', sans-serif" }}>
         <div>
           <div style={{ fontSize: "32px", lineHeight: "38px" }}>PEOPLE</div>
@@ -245,34 +248,8 @@ export default function HomePage() {
       </div>
 
       {/* ============ FOOTER ============ */}
-      <Link href={"/"} aria-label={"TriHelix home"} style={{ position: "absolute", left: "100px", top: "6884px", display: "block", width: "242px" }}><img src={"/assets/logo-big.webp"} alt={"TriHelix"} style={{ display: "block", width: "242px" }} /></Link>
-      <p style={{ position: "absolute", left: "100px", top: "6974px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "12.5px", lineHeight: "20px", color: "rgba(255,255,255,0.7)" }}>TriHelix is a proprietary framework of Nihilent LTD.</p>
-      <div style={{ position: "absolute", left: "100px", top: "7020px", width: "1240px", height: "1px", background: "rgba(255,255,255,0.16)" }}></div>
-      <div style={{ position: "absolute", left: "100px", top: "7072px", width: "1240px", display: "grid", gridTemplateColumns: "212px 786px 242px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16.5px", lineHeight: "22px" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-          <Link className="navlink" href={"/approach"}>Our Approach</Link>
-          <Link className="navlink" href={"/case-studies"}>Case Studies</Link>
-          <Link className="navlink" href={"/about"}>About Us</Link>
-          <Link onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event("trx:contact")); }} className="navlink" href={"/contact"}>Contact Us</Link>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-          <a className="navlink navlink-on" href={"#"}>Privacy Policy</a>
-          <a className="navlink navlink-on" href={"#"}>Terms of Use</a>
-          <a className="navlink navlink-on" href={"#"}>Cookie Settings</a>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px", whiteSpace: "nowrap" }}>
-          <a className="navlink navlink-on" href={"#"}>Modern Slavery Act, 2015</a>
-          <a className="navlink navlink-on" href={"#"}>Carbon Neutrality Statement</a>
-          <a className="navlink navlink-on" href={"#"}>Carbon Reduction Plan Guidance</a>
-        </div>
-      </div>
-      <p style={{ position: "absolute", left: "0", top: "7260px", width: "1440px", margin: "0", textAlign: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16.3px", lineHeight: "20px", color: "rgba(255,255,255,0.86)" }}>&copy; 2026 TriHelix. All rights reserved.</p>
-      <div style={{ position: "absolute", left: "1208px", top: "7258px", display: "flex", alignItems: "center", gap: "22px" }}>
-        <a className="social" href="https://www.linkedin.com/company/nihilent/" target="_blank" rel="noopener noreferrer" aria-label="TriHelix on LinkedIn"><img src="/assets/icon-linkedin.webp" alt="" style={{ display: "block", width: "22px" }} /></a>
-        <a className="social" href="mailto:Info@nihilent.com" aria-label="Email Info@nihilent.com"><img src="/assets/icon-email.webp" alt="" style={{ display: "block", width: "22px" }} /></a>
-        <a className="social" href="tel:+912039846100" aria-label="Call +91 (20) 3984 6100"><img src="/assets/icon-phone.webp" alt="" style={{ display: "block", width: "20px" }} /></a>
-      </div>
-  
+      <Footer top={6884} />
+
         </div>
       </div>
       </div>

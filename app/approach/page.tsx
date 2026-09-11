@@ -7,6 +7,7 @@ import { stagesCards, stages, principles } from "@/lib/approach-data";
 import { deliverables } from "@/lib/approach-data";
 import MobApproach from "@/components/mobile/MobApproach";
 import ContactModal from "@/components/ContactModal";
+import Footer from "@/components/Footer";
 import ScrollTop from "@/components/ScrollTop";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -28,13 +29,15 @@ export default function ApproachPage() {
           style={{
             position: "absolute", top: 0, left: 0, width: 1440, height: open ? 8232 : 8232 - 426,
             transformOrigin: "0 0",
-            backgroundImage: "url('/assets/approach-bg.png')",
-            backgroundSize: "1440px 8232px",
-            backgroundRepeat: "no-repeat",
             color: "#ffffff",
           }}
         >
 
+      {/* Background image covers from the top of the canvas down through the
+          end of the "How do you make it work?" accordion section (the
+          divider right after it, same top value as that divider below),
+          then stops - nothing from WHY TRIHELIX onward uses the image. */}
+      <div style={{ position: "absolute", top: 0, left: 0, width: "1440px", height: open ? "6286px" : "5932px", backgroundImage: "url('/assets/approach-bg.png')", backgroundSize: "1440px 8232px", backgroundRepeat: "no-repeat" }}></div>
 
 
       {/* NAV */}
@@ -53,10 +56,10 @@ export default function ApproachPage() {
       <p style={{ position: "absolute", left: "848px", top: "221px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16px", lineHeight: "21px", color: "rgba(255,255,255,0.9)", whiteSpace: "nowrap" }}>The friction may be in people, workflows, or<br />technology. TriHelix starts by detecting that friction.</p>
       <p style={{ position: "absolute", left: "848px", top: "284px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16px", lineHeight: "21px", color: "rgba(255,255,255,0.9)", whiteSpace: "nowrap" }}>We understand what is getting in the way of the business outcome<br />first. Only then do we determine whether AI is the right answer, or<br />whether the better answer lies elsewhere.</p>
       <p style={{ position: "absolute", left: "848px", top: "361px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16px", lineHeight: "21px", fontWeight: "600" }}>AI-enabled where it matters. Human-led, always.</p>
-      <img src={"/assets/icon-signal.webp"} alt={""} style={{ position: "absolute", left: "670px", top: "458px", width: "133px" }} />
-      <img src={"/assets/icon-clarity.webp"} alt={""} style={{ position: "absolute", left: "843px", top: "458px", width: "133px" }} />
-      <img src={"/assets/icon-decision.webp"} alt={""} style={{ position: "absolute", left: "1014px", top: "460px", width: "133px" }} />
-      <img src={"/assets/icon-realized.webp"} alt={""} style={{ position: "absolute", left: "1189px", top: "460px", width: "133px" }} />
+      <img src={"/assets/Signal.png"} alt={""} style={{ position: "absolute", left: "670px", top: "458px", width: "133px" }} />
+      <img src={"/assets/Clarity.png"} alt={""} style={{ position: "absolute", left: "843px", top: "458px", width: "133px" }} />
+      <img src={"/assets/Decision.png"} alt={""} style={{ position: "absolute", left: "1014px", top: "460px", width: "133px" }} />
+      <img src={"/assets/RealizedValue.png"} alt={""} style={{ position: "absolute", left: "1189px", top: "460px", width: "133px" }} />
       <div style={{ position: "absolute", left: "670px", top: "582px", width: "133px", textAlign: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16px", lineHeight: "21px", color: "rgba(255,255,255,0.92)" }}>Signals</div>
       <div style={{ position: "absolute", left: "843px", top: "582px", width: "133px", textAlign: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16px", lineHeight: "21px", color: "rgba(255,255,255,0.92)" }}>Clarity</div>
       <div style={{ position: "absolute", left: "1014px", top: "582px", width: "133px", textAlign: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16px", lineHeight: "21px", color: "rgba(255,255,255,0.92)" }}>Decision</div>
@@ -150,15 +153,16 @@ export default function ApproachPage() {
       </button>
       <div id="ap-accordion-body" hidden={!open}>
       <p style={{ position: "absolute", left: "149px", top: "5817px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "18px", lineHeight: "22px", color: "rgba(255,255,255,0.9)" }}>Build the solution. Make it adoptable.</p>
-      <ul style={{ position: "absolute", left: "158px", top: "5863px", margin: "0", padding: "0 0 0 18px", width: "840px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "18px", lineHeight: "24px", color: "rgba(255,255,255,0.9)", listStyle: "disc" }}>
+      <ul style={{ position: "absolute", left: "158px", top: "5863px", margin: "0", padding: "0 0 28px 18px", width: "840px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "18px", lineHeight: "24px", color: "rgba(255,255,255,0.9)", listStyle: "disc" }}>
         <li style={{ marginBottom: "29px" }}><b>HUMAN-IN-THE-LOOP</b> Judgment stays human; the model assists where it earns trust.<br />Solutions are designed around real users, real decisions, and real business contexts.</li>
         <li style={{ marginBottom: "29px" }}><b>DESIGNED AROUND THE WAY PEOPLE WORK</b> Transformation should not create<br />unnecessary behavioral change. Where possible, solutions fit existing ways of working<br />while making it easier for people to perform tasks, make decisions, or access what they<br />need. Where change is necessary, it is supported deliberately.</li>
         <li style={{ marginBottom: "29px" }}><b>ADOPTION BUILT IN</b> Technology only creates value when the people expected to use<br />it actually adopt it. Through MC&sup3;, Nihilent&rsquo;s patented Change Management Framework,<br />adoption is built into execution so that people, leadership, and the wider organization<br />are prepared to sustain the change.</li>
         <li><b>MEASURE SUCCESS FROM THE OUTSET</b> Success measures are defined from the<br />beginning and tested against agreed business outcomes.</li>
+           
       </ul>
 
       </div>
-      <div style={{ position: "absolute", left: "100px", top: open ? "6258px" : "5832px", width: "1240px", height: "1px", background: "rgba(255,255,255,0.4)" }}></div>
+      <div style={{ position: "absolute", left: "100px", top: open ? "6286px" : "5832px", width: "1240px", height: "1px", background: "rgba(255,255,255,0.4)" }}></div>
 
       {/* everything below the accordion rides up while it is closed, so the
           fixed canvas has no hole in it */}
@@ -191,36 +195,10 @@ export default function ApproachPage() {
       </div>
 
       {/* FOOTER */}
-      <Link href={"/"} aria-label={"TriHelix home"} style={{ position: "absolute", left: "100px", top: "7777px", display: "block", width: "242px" }}><img src={"/assets/logo-big.webp"} alt={"TriHelix"} style={{ display: "block", width: "242px" }} /></Link>
-      <p style={{ position: "absolute", left: "100px", top: "7865px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "12.5px", lineHeight: "20px", color: "rgba(255,255,255,0.7)" }}>TriHelix is a proprietary framework of Nihilent LTD.</p>
-      <div style={{ position: "absolute", left: "100px", top: "7914px", width: "1240px", height: "1px", background: "rgba(255,255,255,0.16)" }}></div>
-      <div style={{ position: "absolute", left: "100px", top: "7963px", width: "1240px", display: "grid", gridTemplateColumns: "212px 786px 242px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16.5px", lineHeight: "22px" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "19px" }}>
-          <Link className="navlink" aria-current="page" href={"/approach"}>Our Approach</Link>
-          <Link className="navlink" href={"/case-studies"}>Case Studies</Link>
-          <Link className="navlink" href={"/about"}>About Us</Link>
-          <Link onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event("trx:contact")); }} className="navlink" href={"/contact"}>Contact Us</Link>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "19px" }}>
-          <a className="navlink navlink-on" href={"#"}>Privacy Policy</a>
-          <a className="navlink navlink-on" href={"#"}>Terms of Use</a>
-          <a className="navlink navlink-on" href={"#"}>Cookie Settings</a>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "19px", whiteSpace: "nowrap" }}>
-          <a className="navlink navlink-on" href={"#"}>Modern Slavery Act, 2015</a>
-          <a className="navlink navlink-on" href={"#"}>Carbon Neutrality Statement</a>
-          <a className="navlink navlink-on" href={"#"}>Carbon Reduction Plan Guidance</a>
-      </div>
+      <Footer top={7777} current="approach" />
+
         </div>
       </div>
-      <p style={{ position: "absolute", left: "0", top: "8153px", width: "1440px", margin: "0", textAlign: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16.3px", lineHeight: "20px", color: "rgba(255,255,255,0.86)" }}>&copy; 2026 TriHelix. All rights reserved.</p>
-      <div style={{ position: "absolute", left: "1208px", top: "8151px", display: "flex", alignItems: "center", gap: "22px" }}>
-        <a className="social" href="https://www.linkedin.com/company/nihilent/" target="_blank" rel="noopener noreferrer" aria-label="TriHelix on LinkedIn"><img src="/assets/icon-linkedin.webp" alt="" style={{ display: "block", width: "22px" }} /></a>
-        <a className="social" href="mailto:Info@nihilent.com" aria-label="Email Info@nihilent.com"><img src="/assets/icon-email.webp" alt="" style={{ display: "block", width: "22px" }} /></a>
-        <a className="social" href="tel:+912039846100" aria-label="Call +91 (20) 3984 6100"><img src="/assets/icon-phone.webp" alt="" style={{ display: "block", width: "20px" }} /></a>
-      </div>
-  
-        </div>
       </div>
       </div>
       <div className="only-mobile"><MobApproach /></div>

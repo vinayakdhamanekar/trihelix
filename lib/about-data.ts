@@ -26,6 +26,6 @@ export const regional: Person[] = [
 ];
 
 export const experts: Person[] = [
-  { img: "/assets/p-manish.webp", name: "Manish Deshmukh", role: "PRINCIPAL CONSULTANT" },
+  { img: "/assets/manishd.png", name: "Manish Deshmukh", role: "PRINCIPAL CONSULTANT" },
   { img: "/assets/p-dipyoman.webp", name: "Dipyoman Baneerjee", role: "PRINCIPAL CONSULTANT" },
 ];

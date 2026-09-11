@@ -7,6 +7,7 @@ import { leaders, regional, experts } from "@/lib/about-data";
 import PeopleRow from "@/components/PeopleRow";
 import MobAbout from "@/components/mobile/MobAbout";
 import ContactModal from "@/components/ContactModal";
+import Footer from "@/components/Footer";
 import ScrollTop from "@/components/ScrollTop";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -107,34 +108,8 @@ export default function AboutPage() {
       </div>
 
       {/* FOOTER */}
-      <Link href={"/"} aria-label={"TriHelix home"} style={{ position: "absolute", left: "100px", top: "4890px", display: "block", width: "242px" }}><img src={"/assets/logo-big.webp"} alt={"TriHelix"} style={{ display: "block", width: "242px" }} /></Link>
-      <p style={{ position: "absolute", left: "100px", top: "4983px", margin: "0", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "12.5px", lineHeight: "20px", color: "rgba(255,255,255,0.7)" }}>TriHelix is a proprietary framework of Nihilent LTD.</p>
-      <div style={{ position: "absolute", left: "100px", top: "5026px", width: "1240px", height: "1px", background: "rgba(255,255,255,0.16)" }}></div>
-      <div style={{ position: "absolute", left: "100px", top: "5078px", width: "1240px", display: "grid", gridTemplateColumns: "212px 786px 242px", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16.5px", lineHeight: "22px" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "19px" }}>
-          <Link className="navlink" href={"/approach"}>Our Approach</Link>
-          <Link className="navlink" href={"/case-studies"}>Case Studies</Link>
-          <Link className="navlink" aria-current="page" href={"/about"}>About Us</Link>
-          <Link onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event("trx:contact")); }} className="navlink" href={"/contact"}>Contact Us</Link>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "19px" }}>
-          <a className="navlink navlink-on" href={"#"}>Privacy Policy</a>
-          <a className="navlink navlink-on" href={"#"}>Terms of Use</a>
-          <a className="navlink navlink-on" href={"#"}>Cookie Settings</a>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "19px", whiteSpace: "nowrap" }}>
-          <a className="navlink navlink-on" href={"#"}>Modern Slavery Act, 2015</a>
-          <a className="navlink navlink-on" href={"#"}>Carbon Neutrality Statement</a>
-          <a className="navlink navlink-on" href={"#"}>Carbon Reduction Plan Guidance</a>
-        </div>
-      </div>
-      <p style={{ position: "absolute", left: "0", top: "5266px", width: "1440px", margin: "0", textAlign: "center", fontFamily: "'IBM Plex Sans', sans-serif", fontSize: "16.3px", lineHeight: "20px", color: "rgba(255,255,255,0.86)" }}>&copy; 2026 TriHelix. All rights reserved.</p>
-      <div style={{ position: "absolute", left: "1208px", top: "5264px", display: "flex", alignItems: "center", gap: "22px" }}>
-        <a className="social" href="https://www.linkedin.com/company/nihilent/" target="_blank" rel="noopener noreferrer" aria-label="TriHelix on LinkedIn"><img src="/assets/icon-linkedin.webp" alt="" style={{ display: "block", width: "22px" }} /></a>
-        <a className="social" href="mailto:Info@nihilent.com" aria-label="Email Info@nihilent.com"><img src="/assets/icon-email.webp" alt="" style={{ display: "block", width: "22px" }} /></a>
-        <a className="social" href="tel:+912039846100" aria-label="Call +91 (20) 3984 6100"><img src="/assets/icon-phone.webp" alt="" style={{ display: "block", width: "20px" }} /></a>
-      </div>
-  
+      <Footer top={4890} current="about" />
+
         </div>
       </div>
       </div>

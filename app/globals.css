@@ -145,11 +145,15 @@ a, button, [role="button"], .navlink, .social, .logo-link { cursor: pointer; }
 
 /* --- "Read case study >" on a carousel card -------------------
    The whole card is the link; this is the affordance that says
-   so. The chevron slides a little on rollover of the card. */
-.readlink > span { transition: transform .18s ease; }
-a:hover .readlink > span { transform: translateX(4px); }
-a:hover .readlink { text-decoration: underline; text-underline-offset: 4px; }
-@media (prefers-reduced-motion: reduce) { .readlink > span { transition: none; } }
+   so. The chevron slides a little on rollover of the card.
+   The underline goes on the text span alone, not on .readlink,
+   because .readlink is an inline-flex wrapper around both the
+   text and the icon — decoration set there paints across its
+   whole box and isn't something the icon can opt out of. */
+.readlink > .arrow-icon { transition: transform .18s ease; }
+a:hover .readlink > .arrow-icon { transform: translateX(4px); }
+a:hover .readlink-text { text-decoration: underline; text-underline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .readlink > .arrow-icon { transition: none; } }
 
 /* --- Reveal on scroll ----------------------------------------
    Applied by components/ScrollReveal.tsx, and only to blocks
@@ -162,3 +166,4 @@ a:hover .readlink { text-decoration: underline; text-underline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) {
   .trx-reveal, .trx-reveal.trx-in { opacity: 1; transform: none; transition: none; }
 }
+
