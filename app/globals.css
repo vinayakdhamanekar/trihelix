@@ -1,0 +1,164 @@
+html, body { margin: 0; padding: 0; background: #04040c; }
+body { -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+a:hover { color: #b9d8ff; }
+* { box-sizing: border-box; }
+
+/* Breakpoint switch: the 1440 desktop canvas above 767px, the 393 Figma mobile
+   canvas below it. Both trees render; only one is displayed, and the hidden
+   one's CSS backgrounds are never fetched. */
+.only-mobile { display: none; }
+@media (max-width: 767px) {
+  .only-desktop { display: none !important; }
+  .only-mobile { display: block !important; }
+}
+
+/* ============================================================
+   10-Sep design review
+   ============================================================ */
+
+/* --- CTAs ---------------------------------------------------
+   No glow on any CTA. Blue fills invert to white-on-black on
+   hover; white fills empty out to a 1px white stroke with white
+   text. Both keep their exact resting appearance. */
+.cta {
+  box-shadow: none !important;
+  border: 1px solid transparent;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+}
+.cta-blue:hover,
+.cta-blue:focus-visible { background: #ffffff !important; color: #16161b !important; }
+
+.cta-white:hover,
+.cta-white:focus-visible {
+  background: transparent !important;
+  color: #ffffff !important;
+  border-color: #ffffff;
+}
+
+/* --- Nav links ----------------------------------------------
+   White underline on rollover, sitting a few px clear of the
+   baseline rather than flush to it. The link for the page you
+   are on stays underlined. */
+.navlink { position: relative; display: inline-block; padding-bottom: 5px; }
+/* The rule is painted as a background, not as a scaled pseudo-element.
+   A `transform: scaleX` on a hairline promotes it to its own compositing
+   layer, and the canvas is under a `zoom`, so the layer was rasterised at
+   one size and drawn at another - that is the blur and the crawl the review
+   picked up. A background-size transition repaints every frame instead. */
+.navlink::after { content: none; }
+.navlink {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size .22s ease;
+}
+.navlink:hover,
+.navlink:focus-visible,
+.navlink[aria-current="page"] { background-size: 100% 1px; }
+/* Colour stays put on rollover. Only the rule arrives, so nothing appears
+   to shift. */
+.navlink:hover { color: #ffffff; }
+/* Footer links: no rule at rest, and on rollover the rule is only as wide as
+   the words themselves - they sit in a stretched flex column, so the link has
+   to shrink to its text first. */
+.navlink { width: fit-content; }
+.navlink-on { background-size: 0% 1px; }
+
+/* --- Social icons -------------------------------------------
+   A ring lights up behind the glyph on rollover, so the target
+   reads as a button rather than only brightening. */
+.social {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+  opacity: .82;
+  transition: opacity .18s ease;
+}
+/* The ring is a pseudo-element inset outside the glyph, so it can be bigger
+   than the icon without pushing the row of icons around. */
+.social::before {
+  content: "";
+  position: absolute; inset: -9px;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: 0 0 0 1px transparent;
+  transition: background-color .18s ease, box-shadow .18s ease;
+}
+.social:hover, .social:focus-visible { opacity: 1; }
+.social:hover::before, .social:focus-visible::before {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.45);
+}
+
+/* --- Carousel arrows ----------------------------------------
+   Drawn as vectors (components/CircleArrow.tsx) so they stay
+   crisp at any zoom. On rollover the ring fills and the chevron
+   flips to the page ground. */
+.circle-arrow .ca-ring,
+.circle-arrow .ca-chevron { transition: fill .18s ease, stroke .18s ease; }
+button:hover > .circle-arrow .ca-ring,
+button:focus-visible > .circle-arrow .ca-ring { fill: #ffffff; }
+button:hover > .circle-arrow .ca-chevron,
+button:focus-visible > .circle-arrow .ca-chevron { stroke: #04040c; }
+
+/* --- Clickable things look clickable -------------------------
+   The logo, the nav, the footer links and the cards all take the
+   hand cursor, which the review found missing in places. */
+a, button, [role="button"], .navlink, .social, .logo-link { cursor: pointer; }
+.logo-link { display: inline-block; }
+
+/* --- Gentle load-in ------------------------------------------
+   Text and images fade up once, on first paint. Anything the
+   reader has asked not to animate is left alone. */
+@keyframes trx-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.rise { animation: trx-rise .62s cubic-bezier(.22,.61,.36,1) both; }
+.rise-1 { animation-delay: .06s; }
+.rise-2 { animation-delay: .13s; }
+.rise-3 { animation-delay: .2s; }
+@media (prefers-reduced-motion: reduce) {
+  .rise { animation: none; }
+  .cta, .navlink { transition: none; }
+}
+
+/* Contact popup: eases in rather than appearing hard (10-Sep review). */
+@keyframes trx-pop {
+  from { opacity: 0; transform: translateY(10px) scale(.985); }
+  to   { opacity: 1; transform: none; }
+}
+/* Its CTA inverts to a black outline with black text on hover. */
+.cta-onlight:hover, .cta-onlight:focus-visible {
+  background: transparent !important;
+  color: #17181a !important;
+  border-color: #17181a;
+}
+@media (prefers-reduced-motion: reduce) { [style*="trx-pop"] { animation: none !important; } }
+
+/* Mobile menu slides in from the right edge (10-Sep review). */
+@keyframes trx-slide { from { transform: translateX(100%); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { nav[aria-label="Main"] { animation: none !important; } }
+
+/* In-place contact popup: copy on the left, the form on the right, exactly as
+   the design lays it out; one column once there is no room for two. */
+.trx-modal-grid { display: grid; grid-template-columns: 380px 1fr; gap: 46px; padding: 54px 60px 58px; }
+@media (max-width: 900px) { .trx-modal-grid { grid-template-columns: 1fr; gap: 26px; padding: 34px 24px 38px; } }
+
+/* --- "Read case study >" on a carousel card -------------------
+   The whole card is the link; this is the affordance that says
+   so. The chevron slides a little on rollover of the card. */
+.readlink > span { transition: transform .18s ease; }
+a:hover .readlink > span { transform: translateX(4px); }
+a:hover .readlink { text-decoration: underline; text-underline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .readlink > span { transition: none; } }
+
+/* --- Reveal on scroll ----------------------------------------
+   Applied by components/ScrollReveal.tsx, and only to blocks
+   that start below the fold, so nothing above it ever flashes. */
+.trx-reveal { opacity: 0; transform: translateY(18px); }
+.trx-reveal.trx-in {
+  opacity: 1; transform: none;
+  transition: opacity .55s cubic-bezier(.22,.61,.36,1), transform .55s cubic-bezier(.22,.61,.36,1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .trx-reveal, .trx-reveal.trx-in { opacity: 1; transform: none; transition: none; }
+}
