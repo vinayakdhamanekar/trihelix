@@ -15,8 +15,7 @@ import ContactForm from "@/components/ContactForm";
  * coordinates, so it stays over the drawn hamburger at any phone width.
  */
 const LINKS = [
-  // No "Home" row: the desktop header does not carry one either, and the logo
-  // above the menu already goes there (10-Sep review).
+  { href: "/", label: "Home" },
   { href: "/approach", label: "Our Approach" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/about", label: "About Us" },

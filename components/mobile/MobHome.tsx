@@ -11,7 +11,7 @@ import { slides } from "@/lib/home-data";
  *  Every box, colour, font size and line break is read out of the Figma file;
  *  nothing here is eyeballed. Regenerate with v3-mobfig/mobgen.mjs. */
 export default function MobHome({ bare = false }: { bare?: boolean }) {
-  const { stageRef, artRef } = useStageFit(393, 8382);
+  const { stageRef, artRef } = useStageFit(393, 8482);
   const [slide, setSlide] = useState(0);
   const track = useRef<HTMLDivElement | null>(null);
   const CARD_W = 357;
@@ -25,9 +25,9 @@ export default function MobHome({ bare = false }: { bare?: boolean }) {
   const swipe = useSwipe(prev, next);
   return (
     <div ref={stageRef} style={{ position: "relative", width: "100%", overflow: "hidden", background: "#000000" }}>
-      <div ref={artRef} style={{ position: "absolute", top: 0, left: 0, width: 393, height: 8382, transformOrigin: "0 0", color: "#ffffff", fontFamily: "var(--font-plex), system-ui, sans-serif" }}>
-        <div style={{ position: "absolute", left: "0px", top: "0px", width: "393px", height: "8430px", background: "#000000", overflow: "hidden" }}>
-          <div style={{ position: "absolute", left: "419.53px", top: "5641.94px", width: "2234.67px", height: "444.83px", transform: "matrix(0,1,-1,0,0,0)", transformOrigin: "0 0" }}>
+      <div ref={artRef} style={{ position: "absolute", top: 0, left: 0, width: 393, height: 8482, transformOrigin: "0 0", color: "#ffffff", fontFamily: "var(--font-plex), system-ui, sans-serif" }}>
+        <div style={{ position: "absolute", left: "0px", top: "0px", width: "393px", height: "8530px", background: "#000000", overflow: "hidden" }}>
+          <div style={{ position: "absolute", left: "419.53px", top: "5681.94px", width: "2234.67px", height: "444.83px", transform: "matrix(0,1,-1,0,0,0)", transformOrigin: "0 0" }}>
             <img src="/assets/mob/home-b04a6f9f54-2235x445.webp" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }} />
           </div>
           <div style={{ position: "absolute", left: "405.88px", top: "2480.92px", width: "1311.81px", height: "402.16px", transform: "matrix(0,1,-1,0,0,0)", transformOrigin: "0 0" }}>
@@ -234,7 +234,7 @@ export default function MobHome({ bare = false }: { bare?: boolean }) {
               </div>
             </div>
           </div>
-          <div style={{ position: "absolute", left: "16px", top: "3840px", width: "360px", height: "1019px" }}>
+          <div style={{ position: "absolute", left: "16px", top: "3880px", width: "360px", height: "1019px" }}>
             <div style={{ position: "absolute", left: "0px", top: "0px", width: "360px", height: "362px" }}>
               <div style={{ position: "absolute", left: "0px", top: "0px", width: "80px", height: "38px", borderRadius: "40px", border: "1px solid #cfcfcf" }}>
                 <div style={{ position: "absolute", left: "21px", top: "11px", width: "38px", fontFamily: "var(--font-plex), system-ui, sans-serif", fontWeight: 500, fontSize: "12px", color: "#ffffff", whiteSpace: "pre" }}>
@@ -307,7 +307,7 @@ export default function MobHome({ bare = false }: { bare?: boolean }) {
               </div>
             </div>
           </div>
-          <div style={{ position: "absolute", left: "16px", top: "4939px", width: "359px", height: "778px" }}>
+          <div style={{ position: "absolute", left: "16px", top: "4979px", width: "359px", height: "778px" }}>
             <div style={{ position: "absolute", left: "0px", top: "0px", width: "359px", height: "334px", borderRadius: "34px" }}>
               <img src="/assets/mob/home-0720d7c4e4-359x334.webp" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block", borderRadius: "34px" }} />
             </div>
@@ -343,7 +343,7 @@ export default function MobHome({ bare = false }: { bare?: boolean }) {
               Approach" CTA between the Approach section and Case Studies,
               with equal 40px space above and below it. */}
           <Link href={"/approach"} style={{ position: "absolute", left: "16px", top: "2864px", height: "44px", padding: "0 24px", borderRadius: "999px", background: "#4097ff", color: "#ffffff", display: "inline-flex", alignItems: "center", justifyContent: "center", whiteSpace: "nowrap", fontFamily: "var(--font-plex), system-ui, sans-serif", fontWeight: 500, fontSize: "15px", textDecoration: "none" }}>Learn more about TriHelix Approach</Link>
-          <div style={{ position: "absolute", left: "16px", top: "2948px", width: "357px", height: "772px" }}>
+          <div style={{ position: "absolute", left: "16px", top: "2988px", width: "357px", height: "772px" }}>
             <div style={{ position: "absolute", left: "0px", top: "0px", width: "357px", height: "335px" }}>
               <div style={{ position: "absolute", left: "0px", top: "0px", width: "357px", height: "198px" }}>
                 <div style={{ position: "absolute", left: "0px", top: "0px", width: "120px", height: "38px", borderRadius: "40px", border: "1px solid #cfcfcf" }}>
@@ -377,7 +377,7 @@ export default function MobHome({ bare = false }: { bare?: boolean }) {
                         <img src="/assets/mob/home-f161caf250-443x612.webp" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block", borderRadius: "14.01px" }} />
                       </div>
                     ) : (
-                      <img src={s.img} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                      <img src={s.img} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "right center" }} />
                     )}
                     <div style={{ position: "absolute", left: "0px", top: "168px", width: "357px", height: "189px", backgroundImage: "linear-gradient(180deg, rgba(0,0,0,0) 11.18%, #000000 100%)" }} />
                     <div style={{ position: "absolute", left: "20px", right: "20px", bottom: "20px" }}>
@@ -408,7 +408,7 @@ export default function MobHome({ bare = false }: { bare?: boolean }) {
               ))}
             </div>
           </div>
-          <div style={{ position: "absolute", left: "16px", top: "5757px", width: "360px", height: "741px" }}>
+          <div style={{ position: "absolute", left: "16px", top: "5797px", width: "360px", height: "741px" }}>
             <div style={{ position: "absolute", left: "0px", top: "0px", width: "360px", height: "358px" }}>
               <div style={{ position: "absolute", left: "0px", top: "0px", width: "107px", height: "38px", borderRadius: "40px", border: "1px solid #cfcfcf" }}>
                 <div style={{ position: "absolute", left: "21px", top: "11px", width: "65px", fontFamily: "var(--font-plex), system-ui, sans-serif", fontWeight: 500, fontSize: "12px", color: "#ffffff", whiteSpace: "pre" }}>
@@ -463,7 +463,7 @@ export default function MobHome({ bare = false }: { bare?: boolean }) {
               <div style={{ position: "absolute", left: "0px", top: "351px", width: "360px", opacity: 0.6, borderTop: "1px solid #ffffff" }} />
             </div>
           </div>
-          <div style={{ position: "absolute", left: "16px", top: "6578px", width: "359px", height: "597px", borderRadius: "30px", background: "rgba(255,255,255,0.1)", backdropFilter: "blur(50px)" }}>
+          <div style={{ position: "absolute", left: "16px", top: "6618px", width: "359px", height: "597px", borderRadius: "30px", background: "rgba(255,255,255,0.1)", backdropFilter: "blur(50px)" }}>
             <div style={{ position: "absolute", left: "20px", top: "50px", width: "319px", height: "317px" }}>
               <div style={{ position: "absolute", left: "0px", top: "0px", width: "319px", fontFamily: "var(--font-bricolage), var(--font-lexend), system-ui, sans-serif", fontWeight: 400, fontSize: "40px", color: "#ffffff", whiteSpace: "pre" }}>
                 <div style={{ position: "absolute", left: "0px", top: "0px", height: "48px", lineHeight: "48px" }}>{`Built on 25+ `}</div>
@@ -518,7 +518,7 @@ export default function MobHome({ bare = false }: { bare?: boolean }) {
               </div>
             </div>
           </div>
-          <div style={{ position: "absolute", left: "16px", top: "7255px", width: "359px", height: "534px", borderRadius: "30px" }}>
+          <div style={{ position: "absolute", left: "16px", top: "7295px", width: "359px", height: "534px", borderRadius: "30px" }}>
             <img src="/assets/mob/home-5ac8d5a645-359x534.webp" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block", borderRadius: "30px" }} />
             <div style={{ position: "absolute", left: "20px", top: "60px", width: "319px", height: "333px" }}>
               <div style={{ position: "absolute", left: "0px", top: "0px", width: "319px", fontFamily: "var(--font-bricolage), var(--font-lexend), system-ui, sans-serif", fontWeight: 400, fontSize: "40px", color: "#ffffff", whiteSpace: "pre" }}>
@@ -541,7 +541,7 @@ export default function MobHome({ bare = false }: { bare?: boolean }) {
               </div>
             </a>
           </div>
-          <div style={{ position: "absolute", left: "16px", top: "7869px", width: "362px", height: "485.81px" }}>
+          <div style={{ position: "absolute", left: "16px", top: "7969px", width: "362px", height: "485.81px" }}>
             <div style={{ position: "absolute", left: "0px", top: "0px", width: "153.09px", height: "61.81px" }}>
               <div style={{ position: "absolute", left: "0px", top: "0px", width: "131.34px", height: "48.42px", overflow: "hidden" }}>
                 <Link data-logolink href={"/"} aria-label={"TriHelix home"} style={{ display: "block", cursor: "pointer", position: "absolute", left: "0px", top: "0px", width: "131.34px", height: "48.42px" }}>
