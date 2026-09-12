@@ -15,7 +15,8 @@ export default function MobHome({ bare = false }: { bare?: boolean }) {
   const [slide, setSlide] = useState(0);
   const track = useRef<HTMLDivElement | null>(null);
   const CARD_W = 357;
-  const SLIDE_STEP = CARD_W;
+  const CARD_GAP = 16;
+  const SLIDE_STEP = CARD_W + CARD_GAP;
   const go = (i: number) => setSlide(((i % slides.length) + slides.length) % slides.length);
   useEffect(() => {
     if (track.current) track.current.style.transform = `translateX(${-slide * SLIDE_STEP}px)`;
