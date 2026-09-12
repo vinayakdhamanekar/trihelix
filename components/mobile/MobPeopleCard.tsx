@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import useSwipe from "@/components/useSwipe";
+import CircleArrow from "@/components/CircleArrow";
 import type { Person } from "@/lib/about-data";
 
 /**
@@ -13,17 +14,21 @@ import type { Person } from "@/lib/about-data";
  * through the row.
  *
  * Geometry is the design's: a 361x368 card at y=67 with 30px corners, the
- * portrait 360x253, a 20%-white rule at its foot, and 16px dots on a 36px
- * pitch centred under the card.
+ * portrait 360x253, a 20%-white rule at its foot, and 10px dots on a 18px
+ * pitch, 12px below the card. Desktop's arrows sit beside its carousel, in
+ * the canvas's generous side margins - there's no room for that here (the
+ * card already spans nearly the full 393px viewport), so the same CircleArrow
+ * used on desktop is instead overlaid on the card's photo, clear of the name
+ * and role text below it.
  */
 export default function MobPeopleCard({ people }: { people: Person[] }) {
   const [i, setI] = useState(0);
   const p = people[Math.min(i, people.length - 1)];
-  const dotsW = people.length * 16 + (people.length - 1) * 20;
-  const swipe = useSwipe(
-    () => setI((v) => Math.max(0, v - 1)),
-    () => setI((v) => Math.min(people.length - 1, v + 1)),
-  );
+  const DOT = 10, DOT_GAP = 8;
+  const dotsW = people.length * DOT + (people.length - 1) * DOT_GAP;
+  const prev = () => setI((v) => Math.max(0, v - 1));
+  const next = () => setI((v) => Math.min(people.length - 1, v + 1));
+  const swipe = useSwipe(prev, next);
 
   return (
     <>
@@ -53,7 +58,24 @@ export default function MobPeopleCard({ people }: { people: Person[] }) {
         </div>
       </div>
 
-      <div style={{ position: "absolute", left: `${(361 - dotsW) / 2}px`, top: "471px", height: "16px" }}>
+      {i > 0 && (
+        <button
+          type="button" onClick={prev} aria-label="Previous person"
+          style={{ position: "absolute", left: "12px", top: "164.5px", width: "58px", height: "58px", padding: 0, border: 0, borderRadius: "999px", background: "transparent", cursor: "pointer", zIndex: 3 }}
+        >
+          <CircleArrow dir="left" />
+        </button>
+      )}
+      {i < people.length - 1 && (
+        <button
+          type="button" onClick={next} aria-label="Next person"
+          style={{ position: "absolute", left: "291px", top: "164.5px", width: "58px", height: "58px", padding: 0, border: 0, borderRadius: "999px", background: "transparent", cursor: "pointer", zIndex: 3 }}
+        >
+          <CircleArrow dir="right" />
+        </button>
+      )}
+
+      <div style={{ position: "absolute", left: `${(361 - dotsW) / 2}px`, top: "447px", height: `${DOT}px` }}>
         {people.map((_, n) => (
           <button
             key={n}
@@ -62,7 +84,7 @@ export default function MobPeopleCard({ people }: { people: Person[] }) {
             aria-current={n === i ? "true" : undefined}
             onClick={() => setI(n)}
             style={{
-              position: "absolute", left: `${n * 36}px`, top: 0, width: "16px", height: "16px",
+              position: "absolute", left: `${n * (DOT + DOT_GAP)}px`, top: 0, width: `${DOT}px`, height: `${DOT}px`,
               padding: 0, borderRadius: "50%", cursor: "pointer",
               border: n === i ? "0" : "1px solid #ffffff",
               background: n === i ? "#ffffff" : "transparent",

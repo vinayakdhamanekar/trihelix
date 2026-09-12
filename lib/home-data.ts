@@ -13,7 +13,7 @@ export const slides = [
     "body": "Voice-enabled sales intelligence for a global industrial manufacturer, reducing administrative effort and giving sales teams more time to sell"
   },
   {
-    "img": "/assets/home-case-3.webp",
+    "img": "/assets/home-case-3.png",
     "title": "IT support, without the ticket queue",
     "body": "Natural-language chat and voice over existing ITSM systems, automating L1 support with contextual L2 escalation."
   }

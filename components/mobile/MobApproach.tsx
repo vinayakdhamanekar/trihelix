@@ -52,7 +52,7 @@ export default function MobApproach({ bare = false }: { bare?: boolean }) {
                   </div>
                   <div style={{ position: "absolute", left: "98px", top: "0px", width: "75px", height: "82px" }}>
                     <div style={{ position: "absolute", left: "2.5px", top: "0px", width: "70px", height: "66px" }}>
-                      <img src="/assets/mob/approach-b4ca0dbb5a-70x66.webp" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }} />
+                      <img src="/assets/mob/Clarity.png" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", display: "block" }} />
                     </div>
                     <div style={{ position: "absolute", left: "0px", top: "66px", width: "75px", fontFamily: "var(--font-plex), system-ui, sans-serif", fontWeight: 500, fontSize: "12px", color: "#ffffff", whiteSpace: "pre" }}>
                       <div style={{ position: "absolute", left: "19.54px", top: "0px", height: "16px", lineHeight: "16px" }}>{`Clarity`}</div>

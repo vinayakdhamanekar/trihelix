@@ -142,7 +142,7 @@ a, button, [role="button"], .navlink, .social, .logo-link { cursor: pointer; }
 /* In-place contact popup: copy on the left, the form on the right, exactly as
    the design lays it out; one column once there is no room for two. */
 .trx-modal-grid { display: grid; grid-template-columns: 380px 1fr; gap: 46px; padding: 54px 60px 58px; }
-@media (max-width: 900px) { .trx-modal-grid { grid-template-columns: 1fr; gap: 26px; padding: 34px 24px 38px; } }
+@media (max-width: 900px) { .trx-modal-grid { grid-template-columns: 1fr; gap: 26px; padding: 40px 24px 40px; } }
 
 /* --- "Read case study >" on a carousel card -------------------
    The whole card is the link; this is the affordance that says
